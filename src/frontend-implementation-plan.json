@@ -1,237 +1,41 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Export Pricing Simulator Frontend",
+  "title": "Add total profit display and introduction text",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Create frontend interface displaying 5 market sections with market number, capacity, and fixed cost",
+      "id": "REQ-12",
+      "summary": "Calculate and display total profit across all 5 markets with Indian Rupee formatting",
       "acceptanceCriteria": [
-        "Five market sections are visible on the page",
-        "Each section displays its market number (1-5)",
-        "Each section shows capacity value in units",
-        "Each section shows fixed cost in Indian Rupees (₹)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Update the main App component to render the pricing simulator layout with a page title and container for market sections"
-        },
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "create",
-          "description": "Create a MarketSection component that displays market number, capacity, and fixed cost. Accept props for marketNumber, capacity, and fixedCost. Format currency values with Indian Rupee symbol and appropriate number formatting."
-        },
-        {
-          "path": "frontend/src/components/PricingSimulator.tsx",
-          "operation": "create",
-          "description": "Create the main PricingSimulator component that renders all 5 MarketSection components with their respective data: Market 1 (capacity=600, fixedCost=0), Market 2 (capacity=800, fixedCost=1500000), Market 3 (capacity=1000, fixedCost=3000000), Market 4 (capacity=1500, fixedCost=5000000), Market 5 (capacity=1200, fixedCost=4000000)"
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Implement price selection mechanism for each market with 9 price points from ₹2,500 to ₹6,500",
-      "acceptanceCriteria": [
-        "Each market section has a price selector with all 9 price options",
-        "Price options are displayed in Indian Rupees (₹) format",
-        "User can independently select different prices for each market"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Add a price selection control (dropdown or radio group) to the MarketSection component with options for prices: 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500. Format each option with the ₹ symbol. Include onChange handler to update selected price."
-        },
-        {
-          "path": "frontend/src/components/PricingSimulator.tsx",
-          "operation": "modify",
-          "description": "Add state management for tracking the selected price for each of the 5 markets independently. Pass price state and setter functions to each MarketSection component as props."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Implement automatic demand lookup from demand table when price is selected",
-      "acceptanceCriteria": [
-        "Demand value updates immediately when price is changed",
-        "Demand lookup matches the exact mapping from the table",
-        "Demand is displayed clearly for each market"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/utils/demandTable.ts",
-          "operation": "create",
-          "description": "Create a constant mapping object for price-to-demand lookup with exact values: 2500→850, 3000→760, 3500→700, 4000→640, 4500→585, 5000→530, 5500→480, 6000→435, 6500→395. Export a function that takes a price and returns the corresponding demand."
-        },
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Import and use the demand lookup function to calculate demand based on the selected price. Display the calculated demand value in the market section with clear labeling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Calculate and display Quantity Sold as minimum of Demand and Capacity",
-      "acceptanceCriteria": [
-        "Quantity Sold never exceeds market capacity",
-        "Quantity Sold never exceeds demand for selected price",
-        "Quantity Sold is displayed for each market"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Calculate Quantity Sold using Math.min(demand, capacity) and display the result in the market section with clear labeling"
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Calculate and display Revenue using formula: Price × Quantity Sold",
-      "acceptanceCriteria": [
-        "Revenue calculation multiplies selected price by quantity sold",
-        "Revenue is displayed in Indian Rupees (₹) format",
-        "Revenue updates when price changes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Calculate Revenue as selectedPrice × quantitySold and display it with Indian Rupee (₹) formatting. Ensure the value updates reactively when price selection changes."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Calculate and display Variable Cost using marginal cost of ₹1,200 per unit",
-      "acceptanceCriteria": [
-        "Variable cost calculation uses exactly ₹1,200 per unit",
-        "Variable cost is displayed in Indian Rupees (₹) format",
-        "Variable cost updates when quantity sold changes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/utils/constants.ts",
-          "operation": "create",
-          "description": "Create a constants file exporting MARGINAL_COST_PER_UNIT = 1200 to ensure consistency across calculations"
-        },
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Import MARGINAL_COST_PER_UNIT and calculate Variable Cost as 1200 × quantitySold. Display the result with Indian Rupee (₹) formatting."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Calculate and display Total Cost using formula: Fixed Cost + Variable Cost",
-      "acceptanceCriteria": [
-        "Total cost includes both fixed and variable components",
-        "Total cost is displayed in Indian Rupees (₹) format",
-        "Total cost updates when variable cost changes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Calculate Total Cost as fixedCost + variableCost and display it with Indian Rupee (₹) formatting"
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Calculate and display Profit using formula: Revenue − Total Cost",
-      "acceptanceCriteria": [
-        "Profit calculation subtracts total cost from revenue",
-        "Profit is displayed in Indian Rupees (₹) format",
-        "Profit can be negative when costs exceed revenue",
-        "Profit updates when price or calculations change"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Calculate Profit as revenue - totalCost and display it with Indian Rupee (₹) formatting. Apply visual distinction (e.g., red color) for negative profit values."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Add toggle control for Market 5 with 'Enter Market' and 'Do Not Enter' states",
-      "acceptanceCriteria": [
-        "Toggle control is visible only for Market 5",
-        "Toggle has clear 'Enter Market' and 'Do Not Enter' labels",
-        "When 'Do Not Enter' is selected, Market 5 profit displays ₹0",
-        "When 'Do Not Enter' is selected, price selection is disabled or hidden for Market 5",
-        "When toggled back to 'Enter Market', normal profit calculation resumes"
+        "Total profit is calculated as the sum of all 5 market profits",
+        "Total profit updates automatically when any market's price selection changes",
+        "Total profit correctly reflects ₹0 for Market 5 when 'Do Not Enter' is selected",
+        "Total profit is displayed with proper Indian Rupee (₹) formatting using the existing formatCurrency utility",
+        "Total profit display is visually prominent and clearly labeled"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/PricingSimulator.tsx",
           "operation": "modify",
-          "description": "Add state for Market 5's toggle (enterMarket boolean, default true). Pass this state and setter to Market 5's MarketSection as props. When enterMarket is false for Market 5, override profit display to show ₹0 and disable price selection."
-        },
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Add optional props for isMarket5, enterMarket boolean, and onToggleEnterMarket callback. When isMarket5 is true, render a toggle control (checkbox or switch) with 'Enter Market' / 'Do Not Enter' labels. When enterMarket is false, disable the price selector and display profit as ₹0 regardless of calculations."
+          "description": "Add calculation logic to compute total profit by summing individual market profits from all 5 markets. Include a new prominently styled section displaying the total profit value with the label 'Total Profit Across All Markets' using the existing formatCurrency utility for Indian Rupee formatting. Ensure the total updates reactively whenever any market's price selection changes."
         }
       ]
     },
     {
-      "id": "REQ-10",
-      "summary": "Display all calculation results in clear, organized format with Indian Rupee formatting",
+      "id": "REQ-13",
+      "summary": "Add introduction section at the top of the page with heading and specified text content",
       "acceptanceCriteria": [
-        "All five calculated values are visible for each market",
-        "Monetary values use Indian Rupee (₹) symbol and appropriate number formatting",
-        "Layout is clean and easy to read",
-        "Results update in real-time when prices or toggle state changes"
+        "Introduction section appears at the top of the page, above the market sections",
+        "Heading 'Introduction' is clearly visible and properly styled",
+        "All provided introduction text is displayed exactly as specified",
+        "Text is formatted with appropriate line breaks between paragraphs for readability",
+        "Introduction styling matches the warm leather-inspired design theme of the application"
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/utils/formatCurrency.ts",
-          "operation": "create",
-          "description": "Create a utility function to format numbers as Indian Rupees with ₹ symbol and appropriate thousand separators (e.g., ₹15,00,000 format). Handle both positive and negative values."
-        },
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Import and use the formatCurrency utility for all monetary displays (Fixed Cost, Revenue, Variable Cost, Total Cost, Profit). Organize the display in a clear grid or card layout showing: Price selection, Demand, Quantity Sold, Revenue, Variable Cost, Total Cost, and Profit. Ensure all values update reactively."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Design interface with simple aesthetic and warm earth tone color scheme reflecting leather goods industry",
-      "acceptanceCriteria": [
-        "Visual design uses warm, professional colors appropriate for leather goods context",
-        "Layout is uncluttered and focuses on functionality",
-        "Typography is legible and professional",
-        "Color scheme is applied consistently across all market sections"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Define a cohesive color scheme using warm earth tones (browns, tans, creams) in CSS custom properties. Include colors for backgrounds, borders, text, and interactive elements. Apply professional, legible typography settings."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind theme with custom colors matching the leather goods aesthetic: warm browns, tans, creams for primary/secondary colors, and accent colors. Configure spacing and typography for a clean, business-appropriate layout."
-        },
-        {
-          "path": "frontend/src/components/MarketSection.tsx",
-          "operation": "modify",
-          "description": "Apply the defined color scheme to the MarketSection component using Tailwind classes or CSS modules. Use earth tone backgrounds, borders, and subtle shadows for cards. Ensure consistent spacing and visual hierarchy."
-        },
         {
           "path": "frontend/src/components/PricingSimulator.tsx",
           "operation": "modify",
-          "description": "Apply the color scheme to the main PricingSimulator layout. Use a neutral earth-tone background, add a professional header/title area, and ensure consistent spacing between market sections."
+          "description": "Add an introduction section at the top of the component, before the market sections grid. Include a heading 'Introduction' styled consistently with the warm leather-inspired theme, followed by the exact text provided in the requirement formatted with appropriate paragraph breaks for readability. Use earth tone colors (browns, tans, creams) consistent with the existing color scheme defined in the Tailwind configuration."
         }
       ]
     }

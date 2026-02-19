@@ -1,6 +1,6 @@
 {
   "frontend/src/App.tsx": "Main application component that renders the header, pricing simulator, and footer with proper branding and attribution.",
-  "frontend/src/components/PricingSimulator.tsx": "Container component that manages state for all 5 markets including prices and Market 5 toggle, rendering MarketSection components in a responsive grid.",
+  "frontend/src/components/PricingSimulator.tsx": "Container component that manages state for all 5 markets, displays an introduction section explaining the leather export business scenario, calculates and prominently displays total profit across all markets, and renders MarketSection components in a responsive grid.",
   "frontend/src/components/MarketSection.tsx": "Individual market card component that displays market parameters, price selection, and calculates/displays demand, quantity sold, revenue, costs, and profit with proper formatting.",
   "frontend/src/utils/demandTable.ts": "Utility module that exports the demand lookup table and function to retrieve demand based on selected price.",
   "frontend/src/utils/constants.ts": "Constants file exporting the marginal cost per unit (₹1,200) used across all calculations.",

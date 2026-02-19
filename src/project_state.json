@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "A pricing simulation website for a leather shoes and belts export business. Users can select prices across 5 different export markets and calculate profit based on demand curves, capacity constraints, and fixed/variable costs.",
   "architectural_notes": [
     "Fixed demand table: 9 price points from ₹2,500 to ₹6,500 with corresponding demand values",
@@ -97,6 +97,22 @@
         "REQ-11"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-the-total-profit-across-all-5-markets-by-summing-individual-market-profits-when-market-5-is-set-to-do-not-enter-its-profit-0-should-still-be-included-in-the-sum-display-the-total-prominently-with-indian-rupee-formatting",
+      "title": "Calculate and display the total profit across all 5 markets by summing individual market profits. When Market 5 is set to 'Do Not Enter', its profit (₹0) should still be included in the sum. Display the total prominently with Indian Rupee (₹) formatting.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-introduction-section-at-the-top-of-the-page-with-the-heading-introduction-followed-by-this-exact-text-you-are-the-owner-of-an-indian-leather-manufacturing-and-export-company-producing-premium-leather-shoes-and-belts-your-company-operates-in-five-different-export-markets-each-with-different-cost-structures-and-production-capacities-in-every-market-you-must-choose-a-selling-price-demand-depends-on-the-price-you-select-and-production-is-subject-to-capacity-constraints-some-markets-involve-fixed-operating-costs-while-others-do-not-in-one-market-you-also-have-the-option-to-enter-or-stay-out-your-objective-is-to-maximize-total-profit-across-all-five-markets-the-goal-is-not-to-sell-the-highest-quantity-but-to-carefully-balance-price-demand-cost-and-capacity-to-achieve-the-highest-overall-profitability-make-your-pricing-decisions-strategically-and-observe-how-they-impact-revenue-cost-and-profit-in-each-market",
+      "title": "Add an introduction section at the top of the page with the heading 'Introduction' followed by this exact text: 'You are the owner of an Indian leather manufacturing and export company producing premium leather shoes and belts. Your company operates in five different export markets, each with different cost structures and production capacities. In every market, you must choose a selling price. Demand depends on the price you select, and production is subject to capacity constraints. Some markets involve fixed operating costs, while others do not. In one market, you also have the option to enter or stay out. Your objective is to maximize total profit across all five markets. The goal is not to sell the highest quantity, but to carefully balance price, demand, cost, and capacity to achieve the highest overall profitability. Make your pricing decisions strategically and observe how they impact revenue, cost, and profit in each market.'",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -121,6 +137,18 @@
     {
       "id": "AR-4",
       "summary": "Display results showing quantity sold, revenue, costs, and profit per market",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Display total profit calculation summing all market profits",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add introduction text explaining the leather export business simulation objectives",
       "reqIds": [],
       "status": "pending"
     }
