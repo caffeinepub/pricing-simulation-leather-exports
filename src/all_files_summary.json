@@ -1,0 +1,20 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no functionality; backend is not used for this client-side application.",
+  "feature_evidence.json": "Feature evidence report documenting 8 implemented features including market display, price selection, demand lookup, quantity/revenue/cost calculations, and profit display with high confidence test coverage.",
+  "frontend-file-summaries.txt": "JSON-formatted summaries of frontend files describing the pricing simulator components, utilities, and styling with warm leather-inspired design theme.",
+  "frontend/index.css": "Tailwind CSS configuration with custom OKLCH color variables for light and dark modes using a warm, neutral color palette with earth tones.",
+  "frontend/index.html": "HTML entry point with title 'Pricing Simulation - Leather Exports' that loads the React application from main.tsx.",
+  "frontend/src/App.tsx": "Root application component rendering header, PricingSimulator main content, and footer with caffeine.ai attribution link.",
+  "frontend/src/components/MarketSection.tsx": "Market card component displaying capacity, fixed cost, price selector, and calculated metrics (demand, quantity sold, revenue, costs, profit) with optional Market 5 toggle switch.",
+  "frontend/src/components/PricingSimulator.tsx": "Container component managing state for 5 markets with their configurations (capacity, fixed costs) and rendering MarketSection components in a responsive grid layout.",
+  "frontend/src/hooks/useActor.ts": "React hook for managing ICP backend actor instances with authentication support, handling identity changes and query invalidation.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context and hook for Internet Identity authentication, managing login state, identity persistence, and AuthClient lifecycle with configurable options.",
+  "frontend/src/hooks/useQueries.ts": "Intentionally empty file with comment explaining all calculations are client-side and no backend queries are needed.",
+  "frontend/src/index.css": "Tailwind CSS configuration with custom CSS variables defining a warm leather-inspired color palette for both light and dark modes, including primary, secondary, muted, accent, success, destructive, border, and chart colors using OKLCH color space.",
+  "frontend/src/main.tsx": "Application entry point that sets up React root with QueryClient for data fetching and InternetIdentityProvider for authentication, rendering the main App component.",
+  "frontend/src/utils/constants.ts": "Exports a single constant MARGINAL_COST_PER_UNIT set to 1200, representing the variable cost per unit in the pricing simulation.",
+  "frontend/src/utils/demandTable.ts": "Defines a demand lookup table mapping 9 price points (₹2,500 to ₹6,500) to corresponding demand quantities (850 to 395) and provides a getDemandForPrice function to retrieve demand values.",
+  "frontend/src/utils/formatCurrency.ts": "Utility function that formats numbers as Indian Rupee currency strings using Indian numbering system (en-IN locale) with proper handling of negative values.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the default theme with custom colors mapped to CSS variables (using OKLCH), border radius utilities, custom fonts (Inter and Merriweather), accordion animations, and includes typography, container queries, and animate plugins.",
+  "project_state.json": "Project metadata describing a leather export pricing simulation with 5 markets, fixed demand curves, capacity constraints, and profit calculations. Documents existing features including market display, price selection, demand lookup, and profit calculations with Market 5 toggle functionality."
+}

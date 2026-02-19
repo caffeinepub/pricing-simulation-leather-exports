@@ -1,2 +1,3 @@
-# pricing-simulation-leather-exports
-Exported from Caffeine project: Pricing Simulation - Leather Exports
+## Pricing Simulation - Leather Exports
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

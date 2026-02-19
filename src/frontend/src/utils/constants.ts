@@ -1,0 +1,1 @@
+export const MARGINAL_COST_PER_UNIT = 1200;

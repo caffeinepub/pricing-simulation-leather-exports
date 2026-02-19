@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Warm leather-inspired color palette - Light mode */
+        --background: 0.97 0.015 45;
+        --foreground: 0.25 0.025 35;
+        --card: 0.99 0.01 45;
+        --card-foreground: 0.25 0.025 35;
+        --popover: 0.99 0.01 45;
+        --popover-foreground: 0.25 0.025 35;
+        
+        /* Rich brown primary */
+        --primary: 0.35 0.08 40;
+        --primary-foreground: 0.98 0.01 45;
+        
+        /* Tan secondary */
+        --secondary: 0.88 0.03 50;
+        --secondary-foreground: 0.30 0.025 35;
+        
+        /* Muted earth tones */
+        --muted: 0.92 0.02 45;
+        --muted-foreground: 0.50 0.02 35;
+        
+        /* Warm accent */
+        --accent: 0.90 0.04 45;
+        --accent-foreground: 0.30 0.025 35;
+        
+        /* Success green with warmth */
+        --success: 0.55 0.12 145;
+        
+        /* Destructive red */
+        --destructive: 0.55 0.20 25;
+        --destructive-foreground: 0.98 0.01 45;
+        
+        /* Borders and inputs */
+        --border: 0.88 0.02 45;
+        --input: 0.88 0.02 45;
+        --ring: 0.35 0.08 40;
+        
+        /* Chart colors */
+        --chart-1: 0.60 0.15 35;
+        --chart-2: 0.65 0.12 50;
+        --chart-3: 0.55 0.10 25;
+        --chart-4: 0.70 0.08 60;
+        --chart-5: 0.50 0.12 40;
+    }
+
+    .dark {
+        /* Dark mode with warm undertones */
+        --background: 0.18 0.02 35;
+        --foreground: 0.95 0.01 45;
+        --card: 0.22 0.025 35;
+        --card-foreground: 0.95 0.01 45;
+        --popover: 0.20 0.025 35;
+        --popover-foreground: 0.95 0.01 45;
+        
+        /* Lighter brown for dark mode */
+        --primary: 0.70 0.08 45;
+        --primary-foreground: 0.20 0.025 35;
+        
+        /* Warm secondary */
+        --secondary: 0.30 0.03 40;
+        --secondary-foreground: 0.95 0.01 45;
+        
+        /* Muted */
+        --muted: 0.28 0.025 35;
+        --muted-foreground: 0.65 0.02 40;
+        
+        /* Accent */
+        --accent: 0.32 0.04 40;
+        --accent-foreground: 0.95 0.01 45;
+        
+        /* Success */
+        --success: 0.60 0.12 145;
+        
+        /* Destructive */
+        --destructive: 0.60 0.20 25;
+        --destructive-foreground: 0.95 0.01 45;
+        
+        /* Borders */
+        --border: 0.30 0.025 35;
+        --input: 0.30 0.025 35;
+        --ring: 0.70 0.08 45;
+        
+        /* Charts */
+        --chart-1: 0.65 0.15 35;
+        --chart-2: 0.70 0.12 50;
+        --chart-3: 0.60 0.10 25;
+        --chart-4: 0.75 0.08 60;
+        --chart-5: 0.55 0.12 40;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-success {
+        color: oklch(var(--success));
+    }
+}

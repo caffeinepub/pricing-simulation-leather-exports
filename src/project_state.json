@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A pricing simulation website for a leather shoes and belts export business. Users can select prices across 5 different export markets and calculate profit based on demand curves, capacity constraints, and fixed/variable costs.",
+  "architectural_notes": [
+    "Fixed demand table: 9 price points from ₹2,500 to ₹6,500 with corresponding demand values",
+    "Each market has unique capacity and fixed cost; marginal cost ₹1,200 is universal",
+    "Profit formula: Revenue (Price × min(Demand, Capacity)) − (Fixed Cost + Variable Cost)"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-frontend-interface-displaying-5-distinct-market-sections-each-showing-market-number-capacity-and-fixed-cost",
+      "title": "Create a frontend interface displaying 5 distinct market sections, each showing market number, capacity, and fixed cost",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-price-selection-mechanism-for-each-market-allowing-users-to-choose-from-9-price-points-2-500-3-000-3-500-4-000-4-500-5-000-5-500-6-000-6-500",
+      "title": "Implement price selection mechanism for each market allowing users to choose from 9 price points: ₹2,500, ₹3,000, ₹3,500, ₹4,000, ₹4,500, ₹5,000, ₹5,500, ₹6,000, ₹6,500",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-automatic-demand-lookup-from-the-demand-table-when-a-price-is-selected-2500-850-3000-760-3500-700-4000-640-4500-585-5000-530-5500-480-6000-435-6500-395",
+      "title": "Implement automatic demand lookup from the demand table when a price is selected: 2500→850, 3000→760, 3500→700, 4000→640, 4500→585, 5000→530, 5500→480, 6000→435, 6500→395",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-quantity-sold-for-each-market-as-the-minimum-of-demand-and-capacity",
+      "title": "Calculate and display Quantity Sold for each market as the minimum of Demand and Capacity",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-revenue-for-each-market-using-formula-revenue-price-quantity-sold",
+      "title": "Calculate and display Revenue for each market using formula: Revenue = Price × Quantity Sold",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-variable-cost-for-each-market-using-marginal-cost-of-1-200-per-unit-variable-cost-1-200-quantity-sold",
+      "title": "Calculate and display Variable Cost for each market using marginal cost of ₹1,200 per unit: Variable Cost = ₹1,200 × Quantity Sold",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-total-cost-for-each-market-using-formula-total-cost-fixed-cost-variable-cost",
+      "title": "Calculate and display Total Cost for each market using formula: Total Cost = Fixed Cost + Variable Cost",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-calculate-and-display-profit-for-each-market-using-formula-profit-revenue-total-cost",
+      "title": "Calculate and display Profit for each market using formula: Profit = Revenue − Total Cost",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-toggle-control-for-market-5-with-two-states-enter-market-and-do-not-enter-when-do-not-enter-is-selected-set-market-5-profit-to-0-and-disable-price-selection",
+      "title": "Add a toggle control for Market 5 with two states: 'Enter Market' and 'Do Not Enter'. When 'Do Not Enter' is selected, set Market 5 profit to ₹0 and disable price selection",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-all-calculation-results-quantity-sold-revenue-variable-cost-total-cost-profit-for-each-market-in-a-clear-organized-format-with-indian-rupee-formatting-where-applicable",
+      "title": "Display all calculation results (Quantity Sold, Revenue, Variable Cost, Total Cost, Profit) for each market in a clear, organized format with Indian Rupee (₹) formatting where applicable",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-the-interface-with-a-simple-clean-aesthetic-suitable-for-a-business-simulation-tool-using-a-cohesive-color-scheme-with-warm-earth-tones-browns-tans-creams-that-reflect-the-leather-goods-industry",
+      "title": "Design the interface with a simple, clean aesthetic suitable for a business simulation tool, using a cohesive color scheme with warm earth tones (browns, tans, creams) that reflect the leather goods industry",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Price selection interface for 5 markets with automatic demand lookup",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Profit calculation engine using demand table, capacity constraints, and cost structure",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Market 5 toggle (Enter Market / Do Not Enter) with conditional profit calculation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Display results showing quantity sold, revenue, costs, and profit per market",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Pricing Simulation - Leather Exports",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
